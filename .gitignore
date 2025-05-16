@@ -1,0 +1,99 @@
+# ASP.NET Core
+## Archivos y directorios generados
+bin/
+obj/
+*.csproj.user
+*.user
+*.suo
+*.cache
+*.pdb
+*.dbmdl
+*.publishproj
+*.pubxml
+*.pubxml.user
+*.nupkg
+*.snk
+
+## Archivos de configuración de entorno
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.*.json
+
+## Directorios de publicación
+wwwroot/dist/
+wwwroot/lib/
+wwwroot/bundles/
+PublishOutput/
+publish/
+
+## Archivos de compilación y paquetes
+*.dll
+*.exe
+*.pdb
+*.bak
+*.tmp
+*.log
+
+## Visual Studio y Rider
+.vscode/
+.idea/
+*.sln.iml
+*.DotSettings.user
+*.vs/
+*.swp
+*~
+*.ncb
+*.aps
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.VisualState.xml
+
+## Archivos de pruebas
+TestResults/
+coverage.*
+*.trx
+*.xml
+
+## Archivos de dependencias
+packages/
+node_modules/
+bower_components/
+
+## Archivos de entorno
+.env
+.env.*
+!.env.example
+
+## Archivos de macOS
+.DS_Store
+
+## Archivos de Windows
+Thumbs.db
+desktop.ini
+
+## Archivos de logs
+*.log
+logs/
+*.log.*
+
+## Archivos de backup
+*.bak
+*.backup
+*.orig
+
+## Otros
+temp/
+tmp/
+*.swp
+*.swo
+*.tmp
+
+# Archivos específicos de ASP.NET Core
+/Properties/launchSettings.json
+/Properties/serviceDependencies*.json
+/Properties/PublishProfiles/
+/wwwroot/**/*.min.*
+/wwwroot/**/*.map
