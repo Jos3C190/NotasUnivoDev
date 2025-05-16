@@ -1,0 +1,25 @@
+﻿@model FacultiesModel;
+
+
+<form asp-action="Upsert" asp-controller="Faculties" method="POST">
+    <div asp-validation-summary="All">
+       <i class="bi bi-exclamation-triangle-fill"></i>
+    </div>
+    <input type="hidden" asp-for="FacultyId" value="@Model.FacultyId" placeholder="FacultyId" aria-label="FacultyId" />
+    
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+            <span class="fas fa-user"></span>
+        </span>
+        <input type="text" class="form-control" asp-for="FacultyName" placeholder="Faculty Name" aria-label="Faculty Name" />
+    </div>
+    <div class="input-group mb-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" asp-for="IsActive" type="checkbox" id="IsActive" checked>
+            <label class="form-check-label" for="FlexSwitchCheckChecked">Is Active</label>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit"><span class="fas fa-save"></span> Guardar información</button>
+
+</form>
+

@@ -1,0 +1,44 @@
+﻿@model FacultiesModel
+
+<div class="col-xl-12 col-md-12 col-sm-12 mt-3">
+    <table class="table table-hover" id="CareersTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Faculty Name</th>
+                <th>Is Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.FacultyId</td>
+                <td>@Model.FacultyName</td>
+                <td>@Model.IsActive</td>
+            </tr>
+    </table>
+</div>
+
+<h2 class="text-center">Careers by @Model.FacultyName</h2>
+
+<div class="col-xl-12 col-md-12 col-sm-12 mt-3">
+    <table class="table table-hover" id="CareersTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Career Name</th>
+                <th>Is Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (CareersModel careersModel in Model.Careers)
+                {
+                    <tr>
+                        <td>@careersModel.CareerId</td>
+                        <td>@careersModel.CareerName</td>
+                        <td>@careersModel.IsActive</td>
+                    </tr>
+                }
+            }
+    </table>
+</div>

@@ -1,0 +1,23 @@
+﻿@model CareersModel
+
+<div class="col-xl-12 col-md-12 col-sm-12 mt-3">
+    <table class="table table-hover" id="CareersTable">
+        <thead>
+            <tr>
+                <th colspan="3" class="text-center">Facultad: @Model.Faculty.FacultyName</th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Careers Name</th>
+                <th>Is Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.CareerId</td>
+                <td>@Model.CareerName</td>
+                <td>@Model.IsActive</td>
+            </tr>
+    </table>
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model List<FacultiesModel>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 d-flex justify-content-start">
+            <a class="btn btn-primary" asp-action="Upsert" asp-controller="Faculties">
+                <span class="fas fa-plus"></span> Agregar
+            </a>
+        </div>
+        <div class="col-xl-12 col-md-12 col-sm-12 mt-3">
+            <table class="table table-hover" id="FacultiesTable">
+                <thead>
+                    <tr>
+                        <th>Actions</th>
+                        <th>Id</th>
+                        <th>Faculty Name</th>
+                        <th>IsActive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var faculty in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a type="button" class="btn btn-success" asp-action="View" asp-controller="Faculties" asp-route-ID="@faculty.FacultyId">
+                                    <span class="fas fa-eye"></span>
+                                </a>
+                                <a type="button" class="btn btn-warning" asp-action="Upsert" asp-controller="Faculties" asp-route-ID="@faculty.FacultyId">
+                                    <span class="fas fa-pencil"></span>
+                                </a>
+                                <a type="button" class="btn btn-danger" asp-action="Delete" asp-controller="Faculties" asp-route-ID="@faculty.FacultyId">
+                                    <span class="fas fa-trash"></span>
+                                </a>
+                            </td>
+                            <td>@faculty.FacultyId</td>
+                            <td>@faculty.FacultyName</td>
+                            <td>
+                                @if (faculty.IsActive)
+                                {
+                                    <span class="badge bg-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Inactive</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#FacultiesTable').DataTable();
+        });
+    </script>
+}

@@ -1,0 +1,37 @@
+﻿@using NotasUnivoDev.Models.ViewModels
+@model CareersViewModel;
+
+
+<form asp-action="Upsert" asp-controller="Careers" method="POST">
+    <div asp-validation-summary="All">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+    </div>
+    <input type="hidden" asp-for="CareerId" value="@Model.CareerId" placeholder="CareerId" aria-label="CareerId" />
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+            <span class="fas fa-user"></span>
+        </span>
+        <input type="text" class="form-control" asp-for="CareerName" placeholder="Career Name" aria-label="Career Name" />
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+            <span class="fas fa-user"></span>
+        </span>
+        <select class="form-control form-select" asp-for="FacultyId">
+        @foreach (FacultiesModel faculty in Model.FacultiesList)
+        {
+                <option value="@faculty.FacultyId">@faculty.FacultyName</option>
+        }
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" asp-for="IsActive" type="checkbox" id="IsActive" checked>
+            <label class="form-check-label" for="FlexSwitchCheckChecked">Is Active</label>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit"><span class="fas fa-save"></span> Guardar información</button>
+
+</form>
+

@@ -1,0 +1,61 @@
+﻿@model List<CareersModel>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 d-flex justify-content-start">
+            <a class="btn btn-primary" asp-action="Upsert" asp-controller="Careers">
+                <span class="fas fa-plus"></span> Agregar
+            </a>
+        </div>
+        <div class="col-xl-12 col-md-12 col-sm-12 mt-3">
+            <table class="table table-hover" id="CareersTable">
+                <thead>
+                    <tr>
+                        <th>Actions</th>
+                        <th>Id</th>
+                        <th>Faculty Name</th>
+                        <th>Career Name</th>
+                        <th>Is Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (CareersModel career in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a type="button" class="btn btn-success" asp-action="View" asp-controller="Careers" asp-route-ID="@career.CareerId">
+                                    <span class="fas fa-eye"></span>
+                                </a>
+                                <a type="button" class="btn btn-warning" asp-action="Upsert" asp-controller="Careers" asp-route-ID="@career.CareerId">
+                                    <span class="fas fa-pencil"></span>
+                                </a>
+                                <a type="button" class="btn btn-danger" asp-action="Delete" asp-controller="Careers" asp-route-ID="@career.CareerId">
+                                    <span class="fas fa-trash"></span>
+                                </a>
+                            </td>
+                            <td>@career.CareerId</td>
+                            <td>@career.Faculty.FacultyName</td>
+                            <td>@career.CareerName</td>
+                            <td>
+                                @if (career.IsActive)
+                                {
+                                    <span class="badge bg-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Inactive</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#CareersTable').DataTable();
+        });
+    </script>
+}
